@@ -137,7 +137,7 @@ If we detect malicious behavior (including but not limited to malware, credentia
 
 ## Index maintenance
 
-The `generated-index` release serves `index.json`. The shared publisher uploads and verifies `index.json.next` before renaming the current index to `index.json.previous` and promoting the new index. The previous copy is retained for recovery. These renames are not atomic; the downloader can use a completed recovery asset if the main file is missing, and the next publisher restores it before continuing. Keep the existing workflow serialization enabled.
+The `generated-index` release serves `index.json`. The shared publisher uploads and verifies `index.json.next` before renaming the current index to `index.json.previous` and promoting the new index. The previous copy is retained for recovery. These renames are not atomic; the downloader can use a completed recovery asset if the main file is missing, and the next publisher restores it before continuing. Workflow downloads include the asset ID to avoid cached redirects to an older upload. Keep the existing workflow serialization enabled.
 
 If the release or all usable index assets are missing, manually run **Generate Plugin State** on `main` with **rebuild_index** enabled. This starts a complete index from repository metadata, ignores plugin/diff/offset/cleanup selections, and verifies that all eligible plugins are included before publishing. `max_plugins` remains a safety limit and must cover the whole catalog. Normal runs still require a valid existing index. Rebuilds also sync plugin discussions; repository statistics are refreshed by the existing stats workflow.
 

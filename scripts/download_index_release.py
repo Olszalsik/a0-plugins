@@ -125,8 +125,9 @@ def main() -> int:
         for a in assets:
             if not isinstance(a, dict):
                 continue
-            if a.get("name") == name and a.get("state") == "uploaded" and isinstance(a.get("browser_download_url"), str):
-                download_url = cast(str, a.get("browser_download_url"))
+            if a.get("name") == name and a.get("state") == "uploaded" and isinstance(a.get("id"), int) and isinstance(a.get("browser_download_url"), str):
+                # Avoid cached redirects to a previous upload.
+                download_url = f"{a['browser_download_url']}?asset_id={a['id']}"
                 if name != asset_name:
                     print(f"WARN: {asset_name} missing; downloading recovery asset {name}")
                 break

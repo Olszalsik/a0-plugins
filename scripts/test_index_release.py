@@ -47,6 +47,8 @@ def check(initial: dict[str, bytes], fault: str = "", content: bytes = NEW) -> N
         if method != "GET":
             mutations.append(method)
         if url.hostname == "download.test":
+            if not url.query:
+                return io.BytesIO(OLD)
             return io.BytesIO(contents[int(url.path.strip("/"))])
         if "/releases/assets/" in url.path:
             asset_id = int(url.path.rsplit("/", 1)[1])
