@@ -1,0 +1,14 @@
+title: Watch Skill
+description: >-
+  Give any Agent Zero session a video input. The watch-skill MCP server
+  contributes 39 video tools; native ws_* tools wrap the engine CLI as a
+  fallback, with slash commands, a WebUI status chip and settings panel, and
+  a video-analyst sub-agent. Local-first - transcription, OCR and search work
+  without an API key; visual Q&A is opt-in per provider. Requires the
+  watch-skill engine 1.4.x.
+github: https://github.com/Olszalsik/a0-watch-skill
+tags:
+  - video
+  - mcp
+  - tools
+  - multimodal
