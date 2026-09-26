@@ -1,5 +1,5 @@
 title: Model Fallback System
-description: Multi-cycle model failover for Agent Zero. When a provider rate-limits, times out or 5xxs, it rotates through fallback model candidates using shared cooldowns, permanent-failure detection, latency-learned warm/cold timeouts, background recovery probes and an extended-retry mode for hour-long quota resets. Covers the chat, utility and main-loop turn paths, and modifies no core agent-zero file.
+description: Rotates through fallback models when a provider rate-limits, times out or errors. Shared cooldowns, permanent-failure detection and adaptive timeouts keep Agent Zero running through hour-long quota resets. No core file edits.
 github: https://github.com/Olszalsik/a0-model-fallback
 tags:
   - llm
